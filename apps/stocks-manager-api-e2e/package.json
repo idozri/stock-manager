@@ -1,0 +1,26 @@
+{
+  "name": "@stocks-manager/stocks-manager-api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@stocks-manager/stocks-manager-api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/stocks-manager-api-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@stocks-manager/stocks-manager-api:build",
+          "@stocks-manager/stocks-manager-api:serve"
+        ]
+      }
+    }
+  }
+}

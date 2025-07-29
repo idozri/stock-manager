@@ -1,10 +1,22 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
   "references": [
     {
       "path": "./apps/stocks-manager"
+    },
+    {
+      "path": "./libs/interfaces"
+    },
+    {
+      "path": "./apps/stocks-manager-api-e2e"
+    },
+    {
+      "path": "./apps/stocks-manager-api"
     }
   ]
 }

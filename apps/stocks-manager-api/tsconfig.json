@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "../../libs/interfaces"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}

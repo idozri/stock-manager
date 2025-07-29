@@ -1,101 +1,276 @@
-# StocksManager
+# Stock Management Website
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+A comprehensive stock portfolio management application built with Next.js, NestJS, and MongoDB. Track your stock portfolio, view real-time market data, and get detailed stock information.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## 🎯 Features
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- **Portfolio Management**: Add and remove stocks from your personal portfolio
+- **Real-time Market Data**: View most active stocks, top gainers, and biggest losers
+- **Stock Details**: Get comprehensive information about individual stocks
+- **Stock Search**: Search for stocks by symbol or company name
+- **User Sessions**: Simple session-based user management
+- **Responsive Design**: Modern UI with Material-UI components
 
-## Run tasks
+## 🏗️ Architecture
 
-To run the dev server for your app, use:
+This is an Nx monorepo containing:
 
-```sh
+- **Frontend**: Next.js 15 application with TypeScript and Material-UI
+- **Backend**: NestJS API with MongoDB and Financial Modeling Prep integration
+- **Shared Library**: Common interfaces and types
+- **E2E Tests**: End-to-end testing suite
+
+## 📋 Prerequisites
+
+- Node.js 18+
+- MongoDB (local instance or MongoDB Atlas)
+- Financial Modeling Prep API key (optional - uses demo key if not provided)
+
+## 🚀 Quick Start
+
+### 1. Clone and Install
+
+```bash
+git clone <repository-url>
+cd stocks-manager
+npm install
+```
+
+### 2. Environment Setup
+
+Create environment files from the examples:
+
+```bash
+# Frontend environment
+cp apps/stocks-manager/.env.example apps/stocks-manager/.env.local
+
+# Backend environment
+cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
+```
+
+### 3. Configure Environment Variables
+
+**Frontend** (`apps/stocks-manager/.env.local`):
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+**Backend** (`apps/stocks-manager-api/.env`):
+
+```env
+# Database
+MONGO_URI=mongodb://localhost:27017/stocks-manager
+
+# Financial Modeling Prep API (optional)
+FMP_API_KEY=your_fmp_api_key_here
+
+# Server
+PORT=3001
+```
+
+### 4. Start MongoDB
+
+Start your local MongoDB instance:
+
+```bash
+# Using MongoDB Community Edition
+mongod
+
+# Or using Docker
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+```
+
+### 5. Run the Application
+
+Start both frontend and backend:
+
+```bash
+# Start backend API (runs on port 3001)
+npx nx serve stocks-manager-api
+
+# Start frontend (runs on port 3000)
 npx nx dev stocks-manager
 ```
 
-To create a production bundle:
+Visit `http://localhost:3000` to access the application.
 
-```sh
+## 📚 Available Scripts
+
+### Development
+
+```bash
+# Start frontend development server
+npx nx dev stocks-manager
+
+# Start backend development server
+npx nx serve stocks-manager-api
+
+# Run both simultaneously
+npm run dev
+```
+
+### Building
+
+```bash
+# Build frontend for production
 npx nx build stocks-manager
+
+# Build backend for production
+npx nx build stocks-manager-api
+
+# Build all projects
+npx nx run-many -t build
 ```
 
-To see all available targets to run for a project, run:
+### Testing
 
-```sh
-npx nx show project stocks-manager
+```bash
+# Run unit tests
+npx nx test stocks-manager-api
+
+# Run E2E tests
+npx nx e2e stocks-manager-api-e2e
+
+# Run all tests
+npx nx run-many -t test
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+## 🗃️ Project Structure
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/next:app demo
+```
+stocks-manager/
+├── apps/
+│   ├── stocks-manager/              # Next.js frontend application
+│   │   ├── src/
+│   │   │   ├── app/                 # App router pages and API routes
+│   │   │   ├── components/          # React components
+│   │   │   ├── contexts/            # React contexts (UserContext)
+│   │   │   ├── lib/                 # Utilities and API clients
+│   │   │   └── store/              # Redux store and slices
+│   │   └── public/                  # Static assets
+│   ├── stocks-manager-api/          # NestJS backend application
+│   │   └── src/
+│   │       ├── app/                 # Application module
+│   │       │   └── stocks/          # Stock-related services and controllers
+│   │       └── main.ts              # Application entry point
+│   └── stocks-manager-api-e2e/      # E2E tests
+├── libs/
+│   └── interfaces/                  # Shared TypeScript interfaces
+│       └── src/lib/interfaces/      # Interface definitions
+└── docs/                           # Documentation files
 ```
 
-To generate a new library, use:
+## 🎮 Usage Guide
 
-```sh
-npx nx g @nx/react:lib mylib
+### Getting Started
+
+1. **First Visit**: When you first open the app, you'll be prompted to enter your name
+2. **Navigation**: Use the sidebar to navigate between Portfolio and Dashboard
+3. **Portfolio**: View and manage your personal stock portfolio
+4. **Dashboard**: Explore market data with different tabs:
+   - Most Active: Stocks with highest trading volume
+   - Top Gainers: Best performing stocks today
+   - Biggest Losers: Worst performing stocks today
+   - Search: Find specific stocks
+
+### Managing Your Portfolio
+
+- **Add Stocks**: Click the green "+" button on any stock card
+- **Remove Stocks**: Click the red delete button on stocks in your portfolio
+- **View Details**: Click on any stock card to see detailed information
+- **Stock Details**: From the detail page, you can add/remove stocks from your portfolio
+
+### User Sessions
+
+- Your portfolio is tied to a session stored in your browser
+- Use the "Logout" button to clear your session and start fresh
+- Sessions persist across browser refreshes
+
+## 🔧 Configuration
+
+### API Integration
+
+The app uses Financial Modeling Prep API for stock data:
+
+- **Demo Mode**: Works without an API key (limited data)
+- **Full Access**: Sign up at [Financial Modeling Prep](https://financialmodelingprep.com/) for an API key
+
+### Database
+
+MongoDB is used to store:
+
+- User portfolios and sessions
+- Cached stock data for performance
+
+### Environment Variables
+
+| Variable              | Description                     | Default                                    |
+| --------------------- | ------------------------------- | ------------------------------------------ |
+| `NEXT_PUBLIC_API_URL` | Backend API URL                 | `http://localhost:3001`                    |
+| `MONGO_URI`           | MongoDB connection string       | `mongodb://localhost:27017/stocks-manager` |
+| `FMP_API_KEY`         | Financial Modeling Prep API key | `demo`                                     |
+| `PORT`                | Backend server port             | `3001`                                     |
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+# Build all applications
+npx nx run-many -t build
+
+# The built applications will be in:
+# - apps/stocks-manager/.next/ (frontend)
+# - apps/stocks-manager-api/dist/ (backend)
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+### Deployment Options
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**Frontend (Next.js)**:
 
-## Set up CI!
+- Vercel (recommended)
+- Netlify
+- Any Node.js hosting service
 
-### Step 1
+**Backend (NestJS)**:
 
-To connect to Nx Cloud, run the following command:
+- Railway
+- Render
+- Heroku
+- Any Node.js hosting service
 
-```sh
-npx nx connect
-```
+**Database**:
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+- MongoDB Atlas (cloud)
+- Local MongoDB instance
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Environment Setup for Production
 
-### Step 2
+1. Set up MongoDB Atlas or ensure MongoDB is accessible
+2. Get a Financial Modeling Prep API key for full functionality
+3. Update environment variables for your hosting platform
+4. Ensure CORS is configured for your frontend domain
 
-Use the following command to configure a CI workflow for your workspace:
+## 🤝 Contributing
 
-```sh
-npx nx g ci-workflow
-```
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 📄 License
 
-## Install Nx Console
+This project is licensed under the MIT License.
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+## 🆘 Support
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+If you encounter any issues:
 
-## Useful links
+1. Check the console for error messages
+2. Ensure MongoDB is running
+3. Verify environment variables are set correctly
+4. Check that both frontend and backend are running
 
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+For more detailed API documentation, see [API Documentation](docs/API.md).
