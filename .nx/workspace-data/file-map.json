@@ -59,52 +59,6 @@
   ],
   "fileMap": {
     "projectFileMap": {
-      "@stocks-manager/stocks-manager-api-e2e": [
-        {
-          "file": "apps/stocks-manager-api-e2e/.spec.swcrc",
-          "hash": "18201067170784284381"
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/jest.config.ts",
-          "hash": "13479663661758179072"
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/package.json",
-          "hash": "10031319168953956632"
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/src/stocks-manager-api/stocks-manager-api.spec.ts",
-          "hash": "110394728024017389",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/src/support/global-setup.ts",
-          "hash": "10817858795115919263",
-          "deps": [
-            "npm:@nx/node"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/src/support/global-teardown.ts",
-          "hash": "14210317125869451873",
-          "deps": [
-            "npm:@nx/node"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/src/support/test-setup.ts",
-          "hash": "15521797170623961900",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api-e2e/tsconfig.json",
-          "hash": "11055539233514912916"
-        }
-      ],
       "@stocks-manager/Interfaces": [
         {
           "file": "libs/interfaces/README.md",
@@ -153,137 +107,6 @@
         {
           "file": "libs/interfaces/tsconfig.lib.json",
           "hash": "28860365721033134"
-        }
-      ],
-      "@stocks-manager/stocks-manager-api": [
-        {
-          "file": "apps/stocks-manager-api/.env",
-          "hash": "7648982912769185844"
-        },
-        {
-          "file": "apps/stocks-manager-api/.env.example",
-          "hash": "12416089952319912876"
-        },
-        {
-          "file": "apps/stocks-manager-api/package.json",
-          "hash": "8841992943881701423",
-          "deps": [
-            "npm:@nestjs/axios",
-            "npm:@nestjs/cache-manager@3.0.1",
-            "npm:@nestjs/config",
-            "npm:@nestjs/throttler",
-            "npm:cache-manager"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/app.module.ts",
-          "hash": "8537779681887214907",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/throttler",
-            "npm:@nestjs/core",
-            "npm:@nestjs/mongoose"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/app.service.ts",
-          "hash": "9967902337593410053",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/fmp-api.service.ts",
-          "hash": "4779165570225015903",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/axios",
-            "npm:rxjs",
-            "@stocks-manager/Interfaces"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stock.schema.ts",
-          "hash": "6509255790962159653",
-          "deps": [
-            "npm:@nestjs/mongoose",
-            "npm:mongoose"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stocks.controller.spec.ts",
-          "hash": "11441953456055534276"
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stocks.controller.ts",
-          "hash": "8455835442667061239",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/throttler"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stocks.module.ts",
-          "hash": "9376113410536677718",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/config",
-            "npm:@nestjs/axios",
-            "npm:@nestjs/cache-manager@3.0.1",
-            "npm:@nestjs/throttler"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stocks.service.spec.ts",
-          "hash": "8097733432700610862"
-        },
-        {
-          "file": "apps/stocks-manager-api/src/app/stocks/stocks.service.ts",
-          "hash": "1101320344532624281",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/mongoose",
-            "npm:@nestjs/cache-manager@3.0.1",
-            "npm:mongoose",
-            "npm:cache-manager"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/stocks-manager-api/src/main.ts",
-          "hash": "150780270862474464",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "apps/stocks-manager-api/tsconfig.app.json",
-          "hash": "5838204381770047182"
-        },
-        {
-          "file": "apps/stocks-manager-api/tsconfig.json",
-          "hash": "3490867816168328682"
-        },
-        {
-          "file": "apps/stocks-manager-api/webpack.config.js",
-          "hash": "2522962333249277604",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
         }
       ],
       "@stocks-manager/stocks-manager": [
@@ -447,6 +270,183 @@
         {
           "file": "apps/stocks-manager/tsconfig.json",
           "hash": "15692898115559354245"
+        }
+      ],
+      "@stocks-manager/stocks-manager-api-e2e": [
+        {
+          "file": "apps/stocks-manager-api-e2e/.spec.swcrc",
+          "hash": "18201067170784284381"
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/jest.config.ts",
+          "hash": "13479663661758179072"
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/package.json",
+          "hash": "10031319168953956632"
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/src/stocks-manager-api/stocks-manager-api.spec.ts",
+          "hash": "110394728024017389",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/src/support/global-setup.ts",
+          "hash": "10817858795115919263",
+          "deps": [
+            "npm:@nx/node"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/src/support/global-teardown.ts",
+          "hash": "14210317125869451873",
+          "deps": [
+            "npm:@nx/node"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/src/support/test-setup.ts",
+          "hash": "15521797170623961900",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api-e2e/tsconfig.json",
+          "hash": "11055539233514912916"
+        }
+      ],
+      "@stocks-manager/stocks-manager-api": [
+        {
+          "file": "apps/stocks-manager-api/.env",
+          "hash": "7648982912769185844"
+        },
+        {
+          "file": "apps/stocks-manager-api/.env.example",
+          "hash": "12416089952319912876"
+        },
+        {
+          "file": "apps/stocks-manager-api/package.json",
+          "hash": "8841992943881701423",
+          "deps": [
+            "npm:@nestjs/axios",
+            "npm:@nestjs/cache-manager@3.0.1",
+            "npm:@nestjs/config",
+            "npm:@nestjs/throttler",
+            "npm:cache-manager"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/app.controller.ts",
+          "hash": "15276891910009544695",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/app.module.ts",
+          "hash": "8537779681887214907",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/throttler",
+            "npm:@nestjs/core",
+            "npm:@nestjs/mongoose"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/app.service.ts",
+          "hash": "9967902337593410053",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/fmp-api.service.ts",
+          "hash": "4779165570225015903",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:rxjs",
+            "@stocks-manager/Interfaces"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stock.schema.ts",
+          "hash": "6509255790962159653",
+          "deps": [
+            "npm:@nestjs/mongoose",
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stocks.controller.spec.ts",
+          "hash": "11441953456055534276"
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stocks.controller.ts",
+          "hash": "8455835442667061239",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/throttler"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stocks.module.ts",
+          "hash": "9376113410536677718",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:@nestjs/config",
+            "npm:@nestjs/axios",
+            "npm:@nestjs/cache-manager@3.0.1",
+            "npm:@nestjs/throttler"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stocks.service.spec.ts",
+          "hash": "8097733432700610862"
+        },
+        {
+          "file": "apps/stocks-manager-api/src/app/stocks/stocks.service.ts",
+          "hash": "1101320344532624281",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/mongoose",
+            "npm:@nestjs/cache-manager@3.0.1",
+            "npm:mongoose",
+            "npm:cache-manager"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/stocks-manager-api/src/main.ts",
+          "hash": "150780270862474464",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/stocks-manager-api/tsconfig.app.json",
+          "hash": "5838204381770047182"
+        },
+        {
+          "file": "apps/stocks-manager-api/tsconfig.json",
+          "hash": "3490867816168328682"
+        },
+        {
+          "file": "apps/stocks-manager-api/webpack.config.js",
+          "hash": "2522962333249277604",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
         }
       ]
     },
