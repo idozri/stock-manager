@@ -1,5 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { PortfolioState } from '@stocks-manager/interfaces';
+import { StockDto } from '@stocks-manager/interfaces';
+
+export interface PortfolioState {
+  stocks: StockDto[];
+  isLoading: boolean;
+  error: string | null;
+  lastUpdated: number | null;
+}
 
 const initialState: PortfolioState = {
   stocks: [],

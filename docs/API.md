@@ -4,7 +4,7 @@ This document outlines all available API endpoints for the Stock Management back
 
 ## Base URL
 
-- **Development**: `http://localhost:3005`
+- **Development**: `http://localhost:3005/api`
 - **Production**: Your deployed backend URL
 
 ## Authentication

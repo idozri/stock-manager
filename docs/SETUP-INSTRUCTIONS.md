@@ -13,32 +13,50 @@ This project is **COMPLETE** and ready to run. Follow these steps to get started
 ### 2. Clone & Install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/idozr/git-sm.git
 cd stocks-manager
 npm install
 ```
 
-### 3. Environment Setup
+### 3. Install App Dependencies
+
+**Important**: After the root install, ensure all app dependencies are installed:
+
+```bash
+# Install frontend dependencies
+cd apps/stocks-manager
+npm install
+cd ../..
+
+# Install backend API dependencies
+cd apps/stocks-manager-api
+npm install
+cd ../..
+```
+
+> **Note**: This project uses npm workspaces. While the root `npm install` should handle most dependencies, some app-specific packages may need to be installed separately in each app directory to ensure all dependencies are properly resolved.
+
+### 4. Environment Setup
 
 **Frontend** (`apps/stocks-manager/.env.local`):
 
 ```bash
 cp apps/stocks-manager/.env.example apps/stocks-manager/.env.local
 # Edit the file and set:
-NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3005/api
 ```
 
-**Backend** (`apps/stocks-manager-api/.env`):
+**Backend** (`apps/stocks-manager-api/.env.local`):
 
 ```bash
-cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
+cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env.local
 # Edit the file and set:
 MONGO_URI=mongodb://localhost:27017/stocks-manager
 FMP_API_KEY=your_api_key_here  # Optional - uses demo if not provided
-PORT=3001
+PORT=3005
 ```
 
-### 4. Start MongoDB
+### 5. Start MongoDB
 
 ```bash
 # Option 1: Local MongoDB
@@ -48,7 +66,7 @@ mongod
 docker run -d -p 27017:27017 --name mongodb mongo:latest
 ```
 
-### 5. Run the Applications
+### 6. Run the Applications
 
 **Terminal 1 - Backend:**
 
@@ -62,10 +80,10 @@ npx nx serve stocks-manager-api
 npx nx dev stocks-manager
 ```
 
-### 6. Access the Application
+### 7. Access the Application
 
 - **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:3001
+- **Backend API**: http://localhost:3005/api
 
 ## 🎯 What You Get
 
@@ -131,7 +149,6 @@ npx nx show project stocks-manager  # Show project details
 - **[README.md](README.md)** - Main project documentation
 - **[API.md](docs/API.md)** - Complete API reference
 - **[USER_GUIDE.md](docs/USER_GUIDE.md)** - End-user guide
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
 - **[PLANNING.md](PLANNING.md)** - Technical architecture
 - **[TASK.md](TASK.md)** - Development history
 
@@ -150,7 +167,7 @@ mongosh --eval "db.runCommand('ping')"
 
 ```bash
 # Kill processes using ports 3000 or 3001
-npx kill-port 3000 3001
+npx kill-port 3000 3005
 ```
 
 **Dependencies Issues:**

@@ -1,0 +1,26 @@
+{
+  "name": "@stocks-manager/interfaces",
+  "root": "libs/interfaces",
+  "projectType": "library",
+  "sourceRoot": "libs/interfaces/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/interfaces",
+        "main": "libs/interfaces/src/index.ts",
+        "tsConfig": "libs/interfaces/tsconfig.lib.json",
+        "assets": ["libs/interfaces/*.md"]
+      }
+    },
+    "typecheck": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "tsConfig": "libs/interfaces/tsconfig.lib.json",
+        "noEmit": true
+      }
+    }
+  },
+  "tags": ["shared", "interfaces"]
+}

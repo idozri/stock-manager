@@ -17,7 +17,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@stocks-manager/interfaces": ["../../libs/interfaces/src/index.ts"]
     },
     "outDir": "dist",
     "rootDir": "src",

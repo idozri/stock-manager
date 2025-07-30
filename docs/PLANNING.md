@@ -169,16 +169,6 @@ stocks-manager/
 - Graceful fallback to demo API key when none provided
 - Background data refresh with TanStack Query
 
-## 🧪 Testing Infrastructure
-
-### Setup Completed
-
-✅ **Available**:
-
-- E2E testing framework with Jest for backend API
-- Unit test structure for backend services
-- Test configuration for both frontend and backend apps
-
 ## 🚀 Performance Optimizations Implemented
 
 ✅ **Completed**:
