@@ -18,7 +18,25 @@ cd stocks-manager
 npm install
 ```
 
-### 3. Environment Setup
+### 3. Install App Dependencies
+
+**Important**: After the root install, ensure all app dependencies are installed:
+
+```bash
+# Install frontend dependencies
+cd apps/stocks-manager
+npm install
+cd ../..
+
+# Install backend API dependencies
+cd apps/stocks-manager-api
+npm install
+cd ../..
+```
+
+> **Note**: This project uses npm workspaces. While the root `npm install` should handle most dependencies, some app-specific packages may need to be installed separately in each app directory to ensure all dependencies are properly resolved.
+
+### 4. Environment Setup
 
 **Frontend** (`apps/stocks-manager/.env.local`):
 
@@ -38,7 +56,7 @@ FMP_API_KEY=your_api_key_here  # Optional - uses demo if not provided
 PORT=3005
 ```
 
-### 4. Start MongoDB
+### 5. Start MongoDB
 
 ```bash
 # Option 1: Local MongoDB
@@ -48,7 +66,7 @@ mongod
 docker run -d -p 27017:27017 --name mongodb mongo:latest
 ```
 
-### 5. Run the Applications
+### 6. Run the Applications
 
 **Terminal 1 - Backend:**
 
@@ -62,7 +80,7 @@ npx nx serve stocks-manager-api
 npx nx dev stocks-manager
 ```
 
-### 6. Access the Application
+### 7. Access the Application
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:3005/api
