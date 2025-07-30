@@ -34,6 +34,8 @@ This is an Nx monorepo containing:
 git clone https://github.com/idozr/git-sm.git
 cd stocks-manager
 npm install
+cd apps/stocks-manager && npm install
+cd ../stocks-manager-api && npm install && cd ../..
 ```
 
 ### 2. Environment Setup
