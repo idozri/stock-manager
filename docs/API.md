@@ -333,12 +333,3 @@ await stocksApi.addToPortfolio(sessionId, 'AAPL');
 // Get stock details
 const details = await stocksApi.getStockDetails('AAPL');
 ```
-
-## Testing
-
-Use the following tools to test the API:
-
-- **Postman Collection**: Available in `/docs/postman/`
-- **OpenAPI/Swagger**: Available at `/api/docs` (if enabled)
-- **Unit Tests**: Run with `npx nx test stocks-manager-api`
-- **E2E Tests**: Run with `npx nx e2e stocks-manager-api-e2e`

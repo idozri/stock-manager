@@ -13,7 +13,7 @@ This project is **COMPLETE** and ready to run. Follow these steps to get started
 ### 2. Clone & Install
 
 ```bash
-git clone <your-repo-url>
+git clone git@github.com:idozri/stock-manager.git
 cd stocks-manager
 npm install
 ```
@@ -25,17 +25,17 @@ npm install
 ```bash
 cp apps/stocks-manager/.env.example apps/stocks-manager/.env.local
 # Edit the file and set:
-NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3005/api
 ```
 
-**Backend** (`apps/stocks-manager-api/.env`):
+**Backend** (`apps/stocks-manager-api/.env.local`):
 
 ```bash
-cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
+cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env.local
 # Edit the file and set:
 MONGO_URI=mongodb://localhost:27017/stocks-manager
 FMP_API_KEY=your_api_key_here  # Optional - uses demo if not provided
-PORT=3001
+PORT=3005
 ```
 
 ### 4. Start MongoDB
@@ -65,7 +65,7 @@ npx nx dev stocks-manager
 ### 6. Access the Application
 
 - **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:3001
+- **Backend API**: http://localhost:3005/api
 
 ## 🎯 What You Get
 
@@ -131,7 +131,6 @@ npx nx show project stocks-manager  # Show project details
 - **[README.md](README.md)** - Main project documentation
 - **[API.md](docs/API.md)** - Complete API reference
 - **[USER_GUIDE.md](docs/USER_GUIDE.md)** - End-user guide
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
 - **[PLANNING.md](PLANNING.md)** - Technical architecture
 - **[TASK.md](TASK.md)** - Development history
 
@@ -149,8 +148,8 @@ mongosh --eval "db.runCommand('ping')"
 **Port Already in Use:**
 
 ```bash
-# Kill processes using ports 3000 or 3001
-npx kill-port 3000 3001
+# Kill processes using ports 3000 or 3005
+npx kill-port 3000 3005
 ```
 
 **Dependencies Issues:**

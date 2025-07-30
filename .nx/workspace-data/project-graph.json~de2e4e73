@@ -534,12 +534,55 @@
         "implicitDependencies": []
       }
     },
-    "undefined": {
-      "name": "undefined",
+    "@stocks-manager/Interfaces": {
+      "name": "@stocks-manager/Interfaces",
       "type": "lib",
       "data": {
         "root": "libs/interfaces",
+        "projectType": "library",
         "targets": {
+          "typecheck": {
+            "dependsOn": [
+              "^typecheck"
+            ],
+            "options": {
+              "cwd": "libs/interfaces",
+              "command": "tsc --build --emitDeclarationOnly"
+            },
+            "cache": true,
+            "inputs": [
+              "production",
+              {
+                "dependentTasksOutputFiles": "**/*.d.ts"
+              },
+              {
+                "externalDependencies": [
+                  "typescript"
+                ]
+              }
+            ],
+            "outputs": [],
+            "syncGenerators": [
+              "@nx/js:typescript-sync"
+            ],
+            "metadata": {
+              "technologies": [
+                "typescript"
+              ],
+              "description": "Runs type-checking for the project.",
+              "help": {
+                "command": "npx tsc --build --help",
+                "example": {
+                  "args": [
+                    "--force"
+                  ]
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
           "lint": {
             "cache": true,
             "options": {
@@ -577,65 +620,9 @@
             "executor": "nx:run-commands",
             "configurations": {},
             "parallelism": true
-          },
-          "typecheck": {
-            "dependsOn": [
-              "^typecheck"
-            ],
-            "options": {
-              "cwd": "libs/interfaces",
-              "command": "tsc --build --emitDeclarationOnly"
-            },
-            "cache": true,
-            "inputs": [
-              "production",
-              "^production",
-              {
-                "externalDependencies": [
-                  "typescript"
-                ]
-              }
-            ],
-            "outputs": [
-              "{projectRoot}/**/*.js",
-              "{projectRoot}/**/*.cjs",
-              "{projectRoot}/**/*.mjs",
-              "{projectRoot}/**/*.jsx",
-              "{projectRoot}/**/*.js.map",
-              "{projectRoot}/**/*.jsx.map",
-              "{projectRoot}/**/*.d.ts",
-              "{projectRoot}/**/*.d.cts",
-              "{projectRoot}/**/*.d.mts",
-              "{projectRoot}/**/*.d.ts.map",
-              "{projectRoot}/**/*.d.cts.map",
-              "{projectRoot}/**/*.d.mts.map",
-              "{projectRoot}/tsconfig.tsbuildinfo",
-              "{projectRoot}/dist/**/*.d.ts",
-              "{projectRoot}/dist/tsconfig.lib.tsbuildinfo"
-            ],
-            "syncGenerators": [
-              "@nx/js:typescript-sync"
-            ],
-            "metadata": {
-              "technologies": [
-                "typescript"
-              ],
-              "description": "Runs type-checking for the project.",
-              "help": {
-                "command": "npx tsc --build --help",
-                "example": {
-                  "args": [
-                    "--force"
-                  ]
-                }
-              }
-            },
-            "executor": "nx:run-commands",
-            "configurations": {},
-            "parallelism": true
           }
         },
-        "projectType": "library",
+        "name": "@stocks-manager/Interfaces",
         "implicitDependencies": [],
         "tags": []
       }
@@ -15064,7 +15051,7 @@
       },
       {
         "source": "@stocks-manager/stocks-manager-api",
-        "target": "undefined",
+        "target": "@stocks-manager/Interfaces",
         "type": "static"
       },
       {
@@ -15097,11 +15084,6 @@
       {
         "source": "@stocks-manager/stocks-manager",
         "target": "npm:@nx/eslint-plugin",
-        "type": "static"
-      },
-      {
-        "source": "@stocks-manager/stocks-manager",
-        "target": "undefined",
         "type": "static"
       },
       {
@@ -15148,9 +15130,25 @@
         "source": "@stocks-manager/stocks-manager",
         "target": "npm:@mui/icons-material",
         "type": "static"
+      },
+      {
+        "source": "@stocks-manager/stocks-manager",
+        "target": "@stocks-manager/Interfaces",
+        "type": "static"
       }
     ],
-    "undefined": [],
+    "@stocks-manager/Interfaces": [
+      {
+        "source": "@stocks-manager/Interfaces",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "@stocks-manager/Interfaces",
+        "target": "npm:class-validator",
+        "type": "static"
+      }
+    ],
     "npm:@nestjs/cache-manager@3.0.1": [
       {
         "source": "npm:@nestjs/cache-manager@3.0.1",
@@ -35151,537 +35149,6 @@
     ]
   },
   "version": "6.0",
-  "errors": [
-    {
-      "projectRoots": [
-        "libs/interfaces"
-      ],
-      "projects": {
-        "@stocks-manager/stocks-manager-api": {
-          "root": "apps/stocks-manager-api",
-          "projectType": "application",
-          "targets": {
-            "typecheck": {
-              "dependsOn": [
-                "^typecheck"
-              ],
-              "options": {
-                "cwd": "apps/stocks-manager-api",
-                "command": "tsc --build --emitDeclarationOnly"
-              },
-              "cache": true,
-              "inputs": [
-                "production",
-                {
-                  "dependentTasksOutputFiles": "**/*.d.ts"
-                },
-                {
-                  "externalDependencies": [
-                    "typescript"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{projectRoot}/**/*.js",
-                "{projectRoot}/**/*.cjs",
-                "{projectRoot}/**/*.mjs",
-                "{projectRoot}/**/*.jsx",
-                "{projectRoot}/**/*.js.map",
-                "{projectRoot}/**/*.jsx.map",
-                "{projectRoot}/**/*.d.ts",
-                "{projectRoot}/**/*.d.cts",
-                "{projectRoot}/**/*.d.mts",
-                "{projectRoot}/**/*.d.ts.map",
-                "{projectRoot}/**/*.d.cts.map",
-                "{projectRoot}/**/*.d.mts.map",
-                "{projectRoot}/tsconfig.tsbuildinfo",
-                "{projectRoot}/dist/**/*.d.ts",
-                "{projectRoot}/dist/tsconfig.app.tsbuildinfo"
-              ],
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "metadata": {
-                "technologies": [
-                  "typescript"
-                ],
-                "description": "Runs type-checking for the project.",
-                "help": {
-                  "command": "npx tsc --build --help",
-                  "example": {
-                    "args": [
-                      "--force"
-                    ]
-                  }
-                }
-              },
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "lint": {
-              "cache": true,
-              "options": {
-                "cwd": "apps/stocks-manager-api",
-                "command": "eslint ."
-              },
-              "inputs": [
-                "default",
-                "^default",
-                "{workspaceRoot}/eslint.config.mjs",
-                "{workspaceRoot}/tools/eslint-rules/**/*",
-                {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
-                "description": "Runs ESLint on project",
-                "help": {
-                  "command": "npx eslint --help",
-                  "example": {
-                    "options": {
-                      "max-warnings": 0
-                    }
-                  }
-                }
-              },
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "build": {
-              "cache": true,
-              "dependsOn": [
-                "^build"
-              ],
-              "inputs": [
-                "production",
-                "^production",
-                {
-                  "externalDependencies": [
-                    "webpack-cli"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{workspaceRoot}/apps\\stocks-manager-api\\dist"
-              ],
-              "metadata": {
-                "technologies": [
-                  "webpack"
-                ],
-                "description": "Runs Webpack build",
-                "help": {
-                  "command": "npx webpack-cli build --help",
-                  "example": {
-                    "options": {
-                      "json": "stats.json"
-                    },
-                    "args": [
-                      "--profile"
-                    ]
-                  }
-                }
-              },
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "executor": "nx:run-commands",
-              "options": {
-                "cwd": "apps/stocks-manager-api",
-                "args": [
-                  "--node-env=production"
-                ],
-                "command": "webpack-cli build"
-              },
-              "configurations": {
-                "development": {
-                  "args": [
-                    "--node-env=development"
-                  ]
-                }
-              },
-              "parallelism": true
-            },
-            "serve": {
-              "continuous": true,
-              "executor": "@nx/js:node",
-              "defaultConfiguration": "development",
-              "dependsOn": [
-                "build"
-              ],
-              "options": {
-                "buildTarget": "@stocks-manager/stocks-manager-api:build",
-                "runBuildTargetDependencies": false
-              },
-              "configurations": {
-                "development": {
-                  "buildTarget": "@stocks-manager/stocks-manager-api:build:development"
-                },
-                "production": {
-                  "buildTarget": "@stocks-manager/stocks-manager-api:build:production"
-                }
-              },
-              "parallelism": true
-            },
-            "preview": {
-              "continuous": true,
-              "options": {
-                "cwd": "apps/stocks-manager-api",
-                "args": [
-                  "--node-env=production"
-                ],
-                "command": "webpack-cli serve"
-              },
-              "metadata": {
-                "technologies": [
-                  "webpack"
-                ],
-                "description": "Starts Webpack dev server in production mode",
-                "help": {
-                  "command": "npx webpack-cli serve --help",
-                  "example": {
-                    "options": {
-                      "args": [
-                        "--client-progress",
-                        "--history-api-fallback "
-                      ]
-                    }
-                  }
-                }
-              },
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "serve-static": {
-              "continuous": true,
-              "dependsOn": [
-                "build"
-              ],
-              "executor": "@nx/web:file-server",
-              "options": {
-                "buildTarget": "build",
-                "spa": true
-              },
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "configurations": {},
-              "parallelism": true
-            },
-            "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
-              "configurations": {},
-              "options": {},
-              "parallelism": true,
-              "executor": "nx:noop"
-            },
-            "watch-deps": {
-              "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
-              "executor": "nx:run-commands",
-              "options": {
-                "command": "npx nx watch --projects @stocks-manager/stocks-manager-api --includeDependentProjects -- npx nx build-deps @stocks-manager/stocks-manager-api"
-              },
-              "configurations": {},
-              "parallelism": true
-            }
-          },
-          "metadata": {
-            "targetGroups": {},
-            "js": {
-              "packageName": "@stocks-manager/stocks-manager-api",
-              "isInPackageManagerWorkspaces": true
-            }
-          },
-          "name": "@stocks-manager/stocks-manager-api",
-          "tags": [
-            "npm:private"
-          ],
-          "implicitDependencies": []
-        },
-        "@stocks-manager/stocks-manager-api-e2e": {
-          "root": "apps/stocks-manager-api-e2e",
-          "projectType": "library",
-          "targets": {
-            "typecheck": {
-              "dependsOn": [
-                "^typecheck"
-              ],
-              "options": {
-                "cwd": "apps/stocks-manager-api-e2e",
-                "command": "tsc --build --emitDeclarationOnly"
-              },
-              "cache": true,
-              "inputs": [
-                "production",
-                "^production",
-                {
-                  "externalDependencies": [
-                    "typescript"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{projectRoot}/out-tsc/@stocks-manager/stocks-manager-api-e2e/**/*.d.ts",
-                "{projectRoot}/out-tsc/@stocks-manager/stocks-manager-api-e2e/tsconfig.tsbuildinfo"
-              ],
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "metadata": {
-                "technologies": [
-                  "typescript"
-                ],
-                "description": "Runs type-checking for the project.",
-                "help": {
-                  "command": "npx tsc --build --help",
-                  "example": {
-                    "args": [
-                      "--force"
-                    ]
-                  }
-                }
-              },
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "lint": {
-              "cache": true,
-              "options": {
-                "cwd": "apps/stocks-manager-api-e2e",
-                "command": "eslint ."
-              },
-              "inputs": [
-                "default",
-                "^default",
-                "{workspaceRoot}/eslint.config.mjs",
-                "{workspaceRoot}/tools/eslint-rules/**/*",
-                {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
-                "description": "Runs ESLint on project",
-                "help": {
-                  "command": "npx eslint --help",
-                  "example": {
-                    "options": {
-                      "max-warnings": 0
-                    }
-                  }
-                }
-              },
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "e2e": {
-              "executor": "@nx/jest:jest",
-              "outputs": [
-                "{projectRoot}/test-output/jest/coverage"
-              ],
-              "options": {
-                "jestConfig": "apps/stocks-manager-api-e2e/jest.config.ts",
-                "passWithNoTests": true
-              },
-              "dependsOn": [
-                "@stocks-manager/stocks-manager-api:build",
-                "@stocks-manager/stocks-manager-api:serve"
-              ],
-              "configurations": {},
-              "parallelism": true
-            }
-          },
-          "name": "@stocks-manager/stocks-manager-api-e2e",
-          "tags": [
-            "npm:private"
-          ],
-          "implicitDependencies": [
-            "@stocks-manager/stocks-manager-api"
-          ],
-          "metadata": {
-            "targetGroups": {},
-            "js": {
-              "packageName": "@stocks-manager/stocks-manager-api-e2e",
-              "isInPackageManagerWorkspaces": true
-            }
-          }
-        },
-        "@stocks-manager/stocks-manager": {
-          "root": "apps/stocks-manager",
-          "targets": {
-            "build": {
-              "options": {
-                "cwd": "apps/stocks-manager",
-                "tty": false,
-                "command": "next build"
-              },
-              "dependsOn": [
-                "^build"
-              ],
-              "cache": true,
-              "inputs": [
-                "default",
-                "^production",
-                {
-                  "externalDependencies": [
-                    "next"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{workspaceRoot}/apps/stocks-manager/.next/!(cache)/**/*",
-                "{workspaceRoot}/apps/stocks-manager/.next/!(cache)"
-              ],
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "dev": {
-              "continuous": true,
-              "options": {
-                "cwd": "apps/stocks-manager",
-                "command": "next dev"
-              },
-              "syncGenerators": [
-                "@nx/js:typescript-sync"
-              ],
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "start": {
-              "continuous": true,
-              "options": {
-                "cwd": "apps/stocks-manager",
-                "command": "next start"
-              },
-              "dependsOn": [
-                "build"
-              ],
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "serve-static": {
-              "continuous": true,
-              "options": {
-                "cwd": "apps/stocks-manager",
-                "command": "next start"
-              },
-              "dependsOn": [
-                "build"
-              ],
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            },
-            "build-deps": {
-              "dependsOn": [
-                "^build"
-              ],
-              "configurations": {},
-              "options": {},
-              "parallelism": true,
-              "executor": "nx:noop"
-            },
-            "watch-deps": {
-              "continuous": true,
-              "dependsOn": [
-                "build-deps"
-              ],
-              "executor": "nx:run-commands",
-              "options": {
-                "command": "npx nx watch --projects @stocks-manager/stocks-manager --includeDependentProjects -- npx nx build-deps @stocks-manager/stocks-manager"
-              },
-              "configurations": {},
-              "parallelism": true
-            },
-            "lint": {
-              "cache": true,
-              "options": {
-                "cwd": "apps/stocks-manager",
-                "command": "eslint ."
-              },
-              "inputs": [
-                "default",
-                "^default",
-                "{workspaceRoot}/eslint.config.mjs",
-                "{workspaceRoot}/apps/stocks-manager/eslint.config.mjs",
-                "{workspaceRoot}/tools/eslint-rules/**/*",
-                {
-                  "externalDependencies": [
-                    "eslint"
-                  ]
-                }
-              ],
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "metadata": {
-                "technologies": [
-                  "eslint"
-                ],
-                "description": "Runs ESLint on project",
-                "help": {
-                  "command": "npx eslint --help",
-                  "example": {
-                    "options": {
-                      "max-warnings": 0
-                    }
-                  }
-                }
-              },
-              "executor": "nx:run-commands",
-              "configurations": {},
-              "parallelism": true
-            }
-          },
-          "name": "@stocks-manager/stocks-manager",
-          "tags": [
-            "npm:private"
-          ],
-          "metadata": {
-            "targetGroups": {},
-            "js": {
-              "packageName": "@stocks-manager/stocks-manager",
-              "isInPackageManagerWorkspaces": true
-            }
-          },
-          "implicitDependencies": []
-        }
-      },
-      "name": "ProjectsWithNoNameError"
-    }
-  ],
-  "computedAt": 1753856358921
+  "errors": [],
+  "computedAt": 1753820180118
 }

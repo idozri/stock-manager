@@ -18,7 +18,6 @@ This is an Nx monorepo containing:
 - **Frontend**: Next.js 15 application with TypeScript and Material-UI
 - **Backend**: NestJS API with MongoDB and Financial Modeling Prep integration
 - **Shared Library**: Common interfaces and types
-- **E2E Tests**: End-to-end testing suite
 
 ## 📋 Prerequisites
 
@@ -31,7 +30,7 @@ This is an Nx monorepo containing:
 ### 1. Clone and Install
 
 ```bash
-git clone <repository-url>
+git clone git@github.com:idozri/stock-manager.git
 cd stocks-manager
 npm install
 ```
@@ -45,7 +44,7 @@ Create environment files from the examples:
 cp apps/stocks-manager/.env.example apps/stocks-manager/.env.local
 
 # Backend environment
-cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
+cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env.local
 ```
 
 ### 3. Configure Environment Variables
@@ -53,7 +52,7 @@ cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
 **Frontend** (`apps/stocks-manager/.env.local`):
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3005/api
 ```
 
 **Backend** (`apps/stocks-manager-api/.env`):
@@ -66,7 +65,7 @@ MONGO_URI=mongodb://localhost:27017/stocks-manager
 FMP_API_KEY=your_fmp_api_key_here
 
 # Server
-PORT=3001
+PORT=3005
 ```
 
 ### 4. Start MongoDB
@@ -121,19 +120,6 @@ npx nx build stocks-manager-api
 
 # Build all projects
 npx nx run-many -t build
-```
-
-### Testing
-
-```bash
-# Run unit tests
-npx nx test stocks-manager-api
-
-# Run E2E tests
-npx nx e2e stocks-manager-api-e2e
-
-# Run all tests
-npx nx run-many -t test
 ```
 
 ## 🗃️ Project Structure
@@ -193,7 +179,6 @@ stocks-manager/
 
 The app uses Financial Modeling Prep API for stock data:
 
-- **Demo Mode**: Works without an API key (limited data)
 - **Full Access**: Sign up at [Financial Modeling Prep](https://financialmodelingprep.com/) for an API key
 
 ### Database
@@ -207,10 +192,10 @@ MongoDB is used to store:
 
 | Variable              | Description                     | Default                                    |
 | --------------------- | ------------------------------- | ------------------------------------------ |
-| `NEXT_PUBLIC_API_URL` | Backend API URL                 | `http://localhost:3001`                    |
+| `NEXT_PUBLIC_API_URL` | Backend API URL                 | `http://localhost:3005/api`                |
 | `MONGO_URI`           | MongoDB connection string       | `mongodb://localhost:27017/stocks-manager` |
 | `FMP_API_KEY`         | Financial Modeling Prep API key | `demo`                                     |
-| `PORT`                | Backend server port             | `3001`                                     |
+| `PORT`                | Backend server port             | `3005`                                     |
 
 ## 🚀 Deployment
 
@@ -224,26 +209,6 @@ npx nx run-many -t build
 # - apps/stocks-manager/.next/ (frontend)
 # - apps/stocks-manager-api/dist/ (backend)
 ```
-
-### Deployment Options
-
-**Frontend (Next.js)**:
-
-- Vercel (recommended)
-- Netlify
-- Any Node.js hosting service
-
-**Backend (NestJS)**:
-
-- Railway
-- Render
-- Heroku
-- Any Node.js hosting service
-
-**Database**:
-
-- MongoDB Atlas (cloud)
-- Local MongoDB instance
 
 ### Environment Setup for Production
 

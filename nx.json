@@ -23,7 +23,7 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/Interfaces/*"]
+      "exclude": ["libs/interfaces/*"]
     },
     {
       "plugin": "@nx/next/plugin",
@@ -44,7 +44,7 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/Interfaces/*"],
+      "include": ["libs/interfaces/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"
