@@ -4,7 +4,6 @@ import { AddUserStocksRequestDto } from './interfaces/stocks/add-user-stocks-req
 import { StockDto } from './interfaces/stocks/stock.dto';
 import { StockQuoteDto } from './interfaces/stocks/stock-quote.dto';
 import { CompanyProfileDto } from './interfaces/stocks/company-profile.dto';
-import { PortfolioStockDto } from './interfaces/portfolio/portfolio.dto';
 import { UserSessionDto } from './interfaces/user/user-session.dto';
 
 @Module({
@@ -14,7 +13,6 @@ import { UserSessionDto } from './interfaces/user/user-session.dto';
     StockDto,
     StockQuoteDto,
     CompanyProfileDto,
-    PortfolioStockDto,
     UserSessionDto,
   ],
   exports: [
@@ -23,7 +21,6 @@ import { UserSessionDto } from './interfaces/user/user-session.dto';
     StockDto,
     StockQuoteDto,
     CompanyProfileDto,
-    PortfolioStockDto,
     UserSessionDto,
   ],
 })

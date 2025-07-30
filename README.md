@@ -31,7 +31,7 @@ This is an Nx monorepo containing:
 ### 1. Clone and Install
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/idozr/git-sm.git
 cd stocks-manager
 npm install
 ```
@@ -45,7 +45,7 @@ Create environment files from the examples:
 cp apps/stocks-manager/.env.example apps/stocks-manager/.env.local
 
 # Backend environment
-cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
+cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env.local
 ```
 
 ### 3. Configure Environment Variables
@@ -53,10 +53,10 @@ cp apps/stocks-manager-api/.env.example apps/stocks-manager-api/.env
 **Frontend** (`apps/stocks-manager/.env.local`):
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3005/api
 ```
 
-**Backend** (`apps/stocks-manager-api/.env`):
+**Backend** (`apps/stocks-manager-api/.env.local`):
 
 ```env
 # Database
@@ -66,7 +66,7 @@ MONGO_URI=mongodb://localhost:27017/stocks-manager
 FMP_API_KEY=your_fmp_api_key_here
 
 # Server
-PORT=3001
+PORT=3005
 ```
 
 ### 4. Start MongoDB
@@ -86,7 +86,7 @@ docker run -d -p 27017:27017 --name mongodb mongo:latest
 Start both frontend and backend:
 
 ```bash
-# Start backend API (runs on port 3001)
+# Start backend API (runs on port 3005)
 npx nx serve stocks-manager-api
 
 # Start frontend (runs on port 3000)
@@ -207,10 +207,10 @@ MongoDB is used to store:
 
 | Variable              | Description                     | Default                                    |
 | --------------------- | ------------------------------- | ------------------------------------------ |
-| `NEXT_PUBLIC_API_URL` | Backend API URL                 | `http://localhost:3001`                    |
+| `NEXT_PUBLIC_API_URL` | Backend API URL                 | `http://localhost:3005/api`                |
 | `MONGO_URI`           | MongoDB connection string       | `mongodb://localhost:27017/stocks-manager` |
 | `FMP_API_KEY`         | Financial Modeling Prep API key | `demo`                                     |
-| `PORT`                | Backend server port             | `3001`                                     |
+| `PORT`                | Backend server port             | `3005`                                     |
 
 ## 🚀 Deployment
 
@@ -224,26 +224,6 @@ npx nx run-many -t build
 # - apps/stocks-manager/.next/ (frontend)
 # - apps/stocks-manager-api/dist/ (backend)
 ```
-
-### Deployment Options
-
-**Frontend (Next.js)**:
-
-- Vercel (recommended)
-- Netlify
-- Any Node.js hosting service
-
-**Backend (NestJS)**:
-
-- Railway
-- Render
-- Heroku
-- Any Node.js hosting service
-
-**Database**:
-
-- MongoDB Atlas (cloud)
-- Local MongoDB instance
 
 ### Environment Setup for Production
 
