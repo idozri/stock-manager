@@ -165,3 +165,6 @@ temp/
 .env.test.local
 .env.production.local
 .env.build
+
+# Nx cache
+.nx/
